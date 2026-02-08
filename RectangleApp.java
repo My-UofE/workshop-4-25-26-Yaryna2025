@@ -55,10 +55,10 @@ public class RectangleApp {
         Rectangle myRect7 = new Rectangle(30.0, 5.0, 10, 10); 
         System.out.println("Width: " + myRect7.getWidth() + ", Height: " + myRect7.getHeight());
         
-        myRect7.setWidth(40); // positive width allowed
+        myRect7.setWidth(40); 
         System.out.println("Width: " + myRect7.getWidth() + ", Height: " + myRect7.getHeight());
         
-        myRect7.setWidth(-10); // negative width ignored
+        myRect7.setWidth(-10); 
         System.out.println("Width: " + myRect7.getWidth() + ", Height: " + myRect7.getHeight());
 
     }
