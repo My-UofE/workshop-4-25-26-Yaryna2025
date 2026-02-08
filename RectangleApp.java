@@ -7,31 +7,31 @@ public class RectangleApp {
         Rectangle myRect1; 
         myRect1 = new Rectangle(20.0, 8.0, 30, 30); 
         
-        //static field
+        // static field
         System.out.println("Rectangle has " + Rectangle.NUMBER_OF_SIDES + " sides");
-        //instance fields
-        System.out.println("Width: " + myRect1.width + ", Height: " + myRect1.height);
-        System.out.println("Origin is: " + myRect1.originX + "," + myRect1.originY);
-        //calling methods
+        // instance fields via getters
+        System.out.println("Width: " + myRect1.getWidth() + ", Height: " + myRect1.getHeight());
+        System.out.println("Origin is: " + myRect1.getOriginX() + "," + myRect1.getOriginY());
+        // calling methods
         System.out.println("Area: " + myRect1.getArea());
         
         System.out.println("\nMoving myRect1");
         myRect1.move(0, 10);
-        System.out.println("Origin is: " + myRect1.originX + "," + myRect1.originY);
+        System.out.println("Origin is: " + myRect1.getOriginX() + "," + myRect1.getOriginY());
 
         System.out.println("Changing width of myRect1");
-        myRect1.width = 16;
-        System.out.println("Width: " + myRect1.width + ", Height: " + myRect1.height);
+        myRect1.setWidth(16);
+        System.out.println("Width: " + myRect1.getWidth() + ", Height: " + myRect1.getHeight());
 
         System.out.println("Creating myRect2");
         Rectangle myRect2 = new Rectangle(20.0, 8.0);
-        System.out.println("Width: " + myRect2.width + ", Height: " + myRect2.height);
-        System.out.println("Origin: " + myRect2.originX + "," + myRect2.originY);
+        System.out.println("Width: " + myRect2.getWidth() + ", Height: " + myRect2.getHeight());
+        System.out.println("Origin: " + myRect2.getOriginX() + "," + myRect2.getOriginY());
 
         System.out.println("Creating myRect3");
         Rectangle myRect3 = new Rectangle(); 
-        System.out.println("Width: " + myRect3.width + ", Height: " + myRect3.height);
-        System.out.println("Origin: " + myRect3.originX + "," + myRect3.originY);
+        System.out.println("Width: " + myRect3.getWidth() + ", Height: " + myRect3.getHeight());
+        System.out.println("Origin: " + myRect3.getOriginX() + "," + myRect3.getOriginY());
 
         System.out.println("\n--- Ratio & square tests ---");
         System.out.println("myRect3 ratio: " + myRect3.calcRatio());
@@ -49,5 +49,17 @@ public class RectangleApp {
         System.out.println("myRect5 overlaps myRect4: " + myRect5.isOverlappedWith(myRect4));
         System.out.println("myRect4 overlaps myRect6: " + myRect4.isOverlappedWith(myRect6));
         System.out.println("myRect6 overlaps myRect4: " + myRect6.isOverlappedWith(myRect4));
+
+        System.out.println("\nCheck class prevents negative widths");
+
+        Rectangle myRect7 = new Rectangle(30.0, 5.0, 10, 10); 
+        System.out.println("Width: " + myRect7.getWidth() + ", Height: " + myRect7.getHeight());
+        
+        myRect7.setWidth(40); // positive width allowed
+        System.out.println("Width: " + myRect7.getWidth() + ", Height: " + myRect7.getHeight());
+        
+        myRect7.setWidth(-10); // negative width ignored
+        System.out.println("Width: " + myRect7.getWidth() + ", Height: " + myRect7.getHeight());
+
     }
 }

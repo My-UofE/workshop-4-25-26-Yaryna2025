@@ -2,10 +2,10 @@
 public class Rectangle {
 
     // 4 instance attributes
-    public double width;
-    public double height;
-    public double originX = 0.0;
-    public double originY = 0.0;
+    private double width;        
+    private double height;      
+    private double originX = 0.0; 
+    private double originY = 0.0; 
 
     // 1 static attribute
     public static final int NUMBER_OF_SIDES = 4;
@@ -26,6 +26,27 @@ public class Rectangle {
     // second constructor
     public Rectangle() {
         this(1, 1, 0, 0);
+    }
+
+    // for each attribute provide getter method
+    public double getWidth() { return width; } 
+    public void setWidth(double width) {      
+        if (width >= 0) this.width = width;   
+    }
+
+    public double getHeight() { return height; } 
+    public void setHeight(double height) {      
+        if (height >= 0) this.height = height;   
+    }
+
+    public double getOriginX() { return originX; } 
+    public void setOriginX(double originX) {       
+        this.originX = originX;                     
+    }
+
+    public double getOriginY() { return originY; } 
+    public void setOriginY(double originY) {       
+        this.originY = originY;                     
     }
 
     // method: move the rectangle
@@ -56,16 +77,15 @@ public class Rectangle {
     }
 
     public boolean isOverlappedWith(Rectangle r) {
+        double thisLeft   = getOriginX();
+        double thisRight  = getOriginX() + getWidth();
+        double thisBottom = getOriginY();
+        double thisTop    = getOriginY() + getHeight();
 
-        double thisLeft   = this.originX;
-        double thisRight  = this.originX + this.width;
-        double thisBottom = this.originY;
-        double thisTop    = this.originY + this.height;
-
-        double rLeft   = r.originX;
-        double rRight  = r.originX + r.width;
-        double rBottom = r.originY;
-        double rTop    = r.originY + r.height;
+        double rLeft   = r.getOriginX();
+        double rRight  = r.getOriginX() + r.getWidth();
+        double rBottom = r.getOriginY();
+        double rTop    = r.getOriginY() + r.getHeight();
 
         if (thisRight <= rLeft || thisLeft >= rRight ||
             thisTop <= rBottom || thisBottom >= rTop) {
