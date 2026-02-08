@@ -102,9 +102,13 @@ public class Rectangle {
     public double calcRatio() {
         return width / height;
     }
-
+    
     public boolean isSquare() {
         double ratio = calcRatio();
         return ratio >= 0.999 && ratio <= 1.001;
+    }
+
+    public String toString() {
+        return "Rectangle[x=" + originX + ",y=" + originY + ",w=" + width + ",h=" + height + "]";
     }
 }
